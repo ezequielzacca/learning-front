@@ -1,0 +1,22 @@
+<md-toolbar color="primary">
+    <span><md-icon>mood</md-icon></span>
+
+    <span>{{numero | async}}</span>
+
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+  <md-menu x-position="before" #menu="mdMenu">
+    <button routerLink="/home" md-menu-item>Home</button>
+    <button routerLink="/about" md-menu-item>About</button>
+    <button routerLink="/feriados" md-menu-item>Feriados</button>
+    <button routerLink="/contador" md-menu-item>Contador</button>
+    <button routerLink="/tareas" md-menu-item>Tareas</button>
+  </md-menu>
+  
+
+<section>
+  <router-outlet></router-outlet>
+</section>
+

@@ -1,0 +1,31 @@
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>Feriados</md-card-title>
+    <md-card-subtitle>2017</md-card-subtitle>
+  </md-card-header>
+  
+  <md-card-content>
+    <table>
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Accion
+        </th>
+    </tr>
+    <tr *ngFor="let feriado of feriados;">
+        <fecha (fechaEliminada)="eliminarFechaEnElPadre($event)" [fecha]="feriado" ></fecha>
+    </tr>
+</table>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>   
+  </md-card-actions>
+</md-card>
+
+

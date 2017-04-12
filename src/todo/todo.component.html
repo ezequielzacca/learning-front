@@ -1,0 +1,25 @@
+<md-card>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Completada</th>
+            <th>Accion<th>
+        </tr>
+        <tr *ngFor="let tarea of tareas | async;">
+            <td>{{ tarea.nombre }}</td>
+            <td>{{ tarea.terminado ? "SI" : "NO"  }}</td>
+            <td>
+                <button (click)="toggleTarea(tarea)" >Toggle</button>
+                <button (click)="delete(tarea)" >Borrar</button>
+            </td>
+        </tr>
+     
+    </table>
+
+    <label>Nombre: </label><input #tareaCreator type="text"/>
+    <button (click)="crearTarea(tareaCreator.value)">Crear</button>
+    
+</md-card>
+
+
+

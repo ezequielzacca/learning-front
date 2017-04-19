@@ -23,8 +23,13 @@ export function instrumentOptions() {
     monitor: useLogMonitor({ visible: true, position: 'right' })
   };
 }
+import { StoreUndoModule } from 'ngrx-undo';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import { EffectsModule } from '@ngrx/effects';
+import { TodoEffects } from "../todo/todo.effect";
+
 
 @NgModule({
   declarations: [
@@ -47,6 +52,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     StoreModule.provideStore({ contador: contadorReducer, tareas:todoReducer }),
     StoreDevtoolsModule.instrumentStore(instrumentOptions),
     StoreLogMonitorModule,
+    StoreUndoModule.interceptStore({
+      bufferSize: 100 // cantidad de acciones que recuerda para poder cancelar
+    }),
+    EffectsModule.run(TodoEffects),
   ],
   providers: [],
   bootstrap: [AppComponent]

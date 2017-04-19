@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.numero = this.store.select((state:AppState)=>state.contador);
-    
+    this.store.dispatch({type: "INIT_TODOS"});
   }
 
   //Aqui hay un websocket que se llamara socket que esta conectado a mi backend
